@@ -4,7 +4,7 @@ It is a simple library that simulates the responses of the tags endpoint of the 
 
 ## Demo
 
-[View demo application](http://159.203.102.243)
+[View demo application](http://159.203.102.243/v1/tags/example)
 
 You can use the endpoints below to see how it works.
 
