@@ -4,20 +4,21 @@ const rateLimit = require("express-rate-limit");
 const bodyParser = require("body-parser");
 const dataBuilder = require("./utils/dataBuilder");
 
-const port = process.env.PORT || 9000;
-const domain = process.env.DOMAIN;
+const PORT = process.env.PORT || 3000;
+const HOST = "0.0.0.0";
+// const domain = process.env.DOMAIN;
 
 const app = express();
 
-function ensureDomain(req, res, next) {
-  if (!domain || req.hostname === domain) {
-    return next();
-  }
-
-  res.redirect(`http://${domain}${req.url}`);
-}
-
-app.all("*", ensureDomain);
+// function ensureDomain(req, res, next) {
+//   if (!domain || req.hostname === domain) {
+//     return next();
+//   }
+//
+//   res.redirect(`http://${domain}${req.url}`);
+// }
+//
+// app.all("*", ensureDomain);
 
 app.use(compression());
 
@@ -81,4 +82,5 @@ app.get("/v1/tags/:tag/media/generate", (req, res) => {
   });
 });
 
-app.listen(port, () => console.log("Server running..."));
+app.listen(PORT, HOST);
+console.log("Server running...");
